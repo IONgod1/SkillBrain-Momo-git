@@ -1,0 +1,170 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #f6f6fa;
+}
+
+.app-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 1200px;
+    margin: 40px auto;
+    background-color: #fff;
+}
+
+.sidebar-section {
+    background-color: #ffffff;
+}
+
+.sidebar-picture {
+    margin-top: 40px;
+}
+
+.contacts-section {
+    padding-left: 40px;
+    background-color: #167ee7;
+}
+
+.contacts {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.contacts-item {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 171%;
+}
+
+.contacts-phone {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    margin-left: 10px;
+}
+
+.contacts-email {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    margin-left: 10px;
+}
+
+.contacts-element {
+    margin-top: -12px;
+}
+
+.tech-skills-secion {
+    margin-top: 40px;
+}
+
+.tech-skills-header {
+    font-weight: 700;
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.tech-skills-list {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    font-style: normal;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.soft-skills-section {
+    margin-top: 40px;
+}
+
+.soft-skills-header {
+    font-weight: 700;
+    font-size: 22px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.soft-skills-list {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 171%;
+    color: #161d2a;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.right-side-container {
+    padding-left: 88px;
+    padding-top: 80px;
+    padding-right: 40px;
+    padding-left: 180px;
+}
+
+.about-me-profesion {
+    font-weight: 700;
+    font-size: 14px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.about-me-name {
+
+    font-weight: 700;
+    font-size: 45px;
+    font-style: normal;
+    line-height: normal;
+    margin-top: -10px;
+}
+
+.about-me-text {
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 171%;
+    color: #595959;
+    margin-top: -15px;
+}
+
+.projects-section {
+    margin-top: 40px;
+}
+
+.projects {
+
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.projects-list {
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 171%;
+    margin-left: -20px;
+    margin-top: -10px;
+}
+
+.project-info {
+    font-weight: 400;
+}
+
+.work-experience-section {
+    margin-top: 40px;
+}
+
+.Work {
+
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.Front-End {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.education {
+    margin-top: 40px;
+    margin-left: 6px;
+}
