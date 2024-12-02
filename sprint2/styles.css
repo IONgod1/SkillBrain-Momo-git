@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Anton SC", sans-serif;
+}
+
+.cv {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.rightPart {
+    background-color: lightblue;
+    width: 360px;
+    padding: 30px;
+    border-radius: 50px 0px 0px 50px;
+}
+
+.portrait {
+    margin-left: 24px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+ul {
+    margin-left: 30px;
+}
+
+.skills {
+    margin-top: 30px;
+}
+
+button {
+    width: 200px;
+    height: 35px;
+    background-color: #6cb4ee;
+    color: white;
+    border: 0;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+button:hover {
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #6cb4ee;
+}
+
+.location {
+    display: flex;
+}
+
+.phoneNumber {
+    display: flex;
+}
+
+.email {
+    color: #000000;
+    text-decoration: none;
+}
+
+.phone {
+    text-decoration: none;
+    color: #000000;
+}
+
+.contacteMe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftPart {
+    width: 1000px;
+    background-color: antiquewhite;
+    border-radius: 0px 50px 50px 0px;
+    padding: 30px;
+}
+
+.nameTitle {
+    margin-bottom: 30px;
+}
+
+.date {
+    font-size: 11px;
+    margin-left: 10px;
+}
