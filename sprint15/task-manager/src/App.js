@@ -3,7 +3,7 @@ import TaskViewer from './components/TaskViewer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
     <TaskViewer></TaskViewer>
     </div>
   );
