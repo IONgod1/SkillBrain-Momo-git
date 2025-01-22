@@ -1,0 +1,46 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+.photo{
+    border-radius: 50%;
+    height: 100px;
+    width: auto;
+}
+.main-div{
+    width: 700px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+}
+.div-left{
+    position: relative;
+    border-radius: 20px;
+    z-index: 300;
+    width: 200px;
+    background-color: rgb(103, 77, 77);
+    padding: 20px;
+    margin: 0 50px
+}
+.div-right{
+    padding: 10px;
+}
+.footer{
+    position:absolute;
+    bottom: 0;
+    text-align:center;
+}
+.div-name{
+    border-bottom: 1px solid;
+}
+.experience{
+    border-bottom: 1px solid;
+}
+.activities{
+    border-bottom: 1px solid;
+}
+.contact{
+    border-bottom: 1px solid;
+}
