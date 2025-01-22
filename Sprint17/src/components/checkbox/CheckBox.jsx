@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import "./Checkbox.css";
 
@@ -6,14 +6,11 @@ const Checkbox = (props) => {
   const [checked, setChecked] = useState(!!props.checked);
 
   const handleCheckboxChange = (e) => {
-    setChecked(e.target.checked);
-  };
-
-  useEffect(() => {
-    if (props.onChange) {
-      props.onChange(checked);
+    if (e.target.checked !== checked) {
+      setChecked(e.target.checked);
+      props.onChange(e.target.checked);
     }
-  }, [checked]);
+  };
 
   return (
     <div className="round">
