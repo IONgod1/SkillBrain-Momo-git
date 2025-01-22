@@ -6,30 +6,41 @@ import Input from "../input/Input";
 import TextArea from "../input/TextArea";
 import Button from "../button/Button";
 
-const Modal = (props) => {
+const Modal = ({ onClose, isModalOpen, todoForModal, onTodoCreate, onTodoUpdate }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [title, setTitle] = React.useState("");
+  const [description, setDescription] = React.useState("");
 
   const closeModal = (e) => {
     e.stopPropagation();
     setIsOpen(false);
-    if (props.onClose) {
-      props.onClose();
+    if (onClose) {
+      onClose();
     }
   };
 
   useEffect(() => {
-    setIsOpen(props.isOpen);
-  }, [props.isOpen]);
+    setIsOpen(isModalOpen);
+  }, [isModalOpen]);
 
-  const [title, setTitle] = React.useState("");
-  const [description, setDescription] = React.useState("");
+  useEffect(() => {
+    setTitle(todoForModal?.title ?? "");
+    setDescription(todoForModal?.description ?? "");
+  }, [todoForModal]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.onTodoCreate(title, description);
+
+    if (todoForModal) {
+      onTodoUpdate(todoForModal.id, title, description);
+    } else {
+      onTodoCreate(title, description);
+    }
+
     setTitle("");
     setDescription("");
-    props.onClose();
+
+    onClose();
   }
 
   return (
@@ -41,14 +52,16 @@ const Modal = (props) => {
       ></i>
 
       <div className="modal-content">
-         <Card>
-            <h2>Create Todo</h2>
-            <form>
-              <Input onChange={(e) => { setTitle(e.target.value) }} placeholder="Title" type="text" value={title} />
-              <TextArea onChange={(e) => { setDescription(e.target.value) }} placeholder="Description" value={description} />
-              <Button type="submit" onClick={onSubmit}>Create</Button>
-            </form>
-          </Card>
+        <Card>
+          <h2>{todoForModal ? "Edit" : "Create"} Todo</h2>
+          <form>
+            <Input onChange={(e) => { setTitle(e.target.value) }} placeholder="Title" type="text" value={title} />
+            <TextArea onChange={(e) => { setDescription(e.target.value) }} placeholder="Description" value={description} />
+            <Button type="submit" onClick={onSubmit}>
+              {todoForModal ? "Edit" : "Create"}
+            </Button>
+          </form>
+        </Card>
       </div>
     </div>
   );

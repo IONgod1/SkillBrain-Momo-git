@@ -53,15 +53,24 @@ function App() {
   const nextId = React.useRef(parseInt(lastId) + 1);
   const uncompletedTodos = todos.filter(todo => !todo.completed);
   const onCreateTodoItemFn = todo =>
-    <TodoItem key={todo.id} todo={todo} onDeleteTodo={()=>onDeleteTodo(todo.id)} />
+    <TodoItem
+      key={todo.id}
+      todo={todo}
+      onDeleteTodo={() => onDeleteTodo(todo.id)}
+      onChangeTodo={(id, changes) => onChangeTodo(id, changes)}
+      onEditModalOpen={() => onEditModalOpen(todo)}
+    />
     ;
   const uncompletedTodosTags = uncompletedTodos.map(onCreateTodoItemFn);
   const completedTodos = todos.filter(todo => todo.completed);
   const completedTodosTags = completedTodos.map(onCreateTodoItemFn);
 
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [todoForModal, setTodoForModal] = React.useState(null);
+
   const onModalClose = () => {
     setIsModalOpen(false);
+    setTodoForModal(null);
   }
   const onTodoCreate = (title, description) => {
     setTodos(todos => [...todos,
@@ -71,27 +80,56 @@ function App() {
       description: description,
       completed: false,
     }]);
-  
-    nextId.current = nextId.current + 1; 
+
+    nextId.current = nextId.current + 1;
   }
 
   const onDeleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
   }
 
+  const onEditModalOpen = (todo) => {
+    setIsModalOpen(true);
+    setTodoForModal(todo);
+  }
+
+  const onChangeTodo = (id, todoChanges) => {
+    setTodos(todos => todos.map(todo => {
+      if (todo.id !== id) {
+        return todo;
+      }
+
+      const newTodo = { ...todo };
+      for (const [key, value] of Object.entries(todoChanges)) {
+        newTodo[key] = value;
+      }
+
+      return newTodo;
+    }));
+  }
+
+  const onTodoModalUpdate = (id, title, description) => {
+    onChangeTodo(id, {
+      title,
+      description,
+    });
+  }
+
   return (
     <div className="App">
       <div className="app-container">
-        <Modal isOpen={isModalOpen} onClose={onModalClose} onTodoCreate={onTodoCreate}>
+        <Modal
+          isModalOpen={isModalOpen}
+          todoForModal={todoForModal}
+          onClose={onModalClose}
+          onTodoCreate={onTodoCreate}
+          onTodoUpdate={onTodoModalUpdate}
+        >
         </Modal>
 
-        
-        {/* 
-          My Todos
-        */}
         <Card>
           <h1>My todos</h1>
-          <Button onClick={() => setIsModalOpen(true)}>Add +</Button>
+          <Button onClick={() => { setIsModalOpen(true); setTodoForModal(null) }}>Add +</Button>
           <div className="list-container">
             {uncompletedTodosTags}
           </div>
